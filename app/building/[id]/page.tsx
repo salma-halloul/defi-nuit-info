@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
@@ -7,7 +6,6 @@ import { buildingsData, quizQuestions } from "@/app/data/buildings";
 
 export default function BuildingPage() {
   const params = useParams();
-  const router = useRouter();
   const buildingId = params.id as string;
   
   const building = buildingsData[buildingId];
@@ -17,6 +15,7 @@ export default function BuildingPage() {
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [showExplanation, setShowExplanation] = useState(false);
   const [score, setScore] = useState(0);
+  const [showResults, setShowResults] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
   const [quizStarted, setQuizStarted] = useState(false);
 
@@ -54,7 +53,7 @@ export default function BuildingPage() {
     
     const isCorrect = selectedAnswer === questions[currentQuestion].correctAnswer;
     if (isCorrect) {
-      setScore(score + 1);
+      setScore(prevScore => prevScore + 1);
     }
     setShowExplanation(true);
   };
@@ -65,8 +64,13 @@ export default function BuildingPage() {
       setSelectedAnswer(null);
       setShowExplanation(false);
     } else {
-      // Quiz terminé
-      const passed = score + (selectedAnswer === questions[currentQuestion].correctAnswer ? 1 : 0) >= questions.length * 0.6;
+      // Quiz terminé - passer à l'écran des résultats
+      setShowResults(true);
+      
+      // Calculer le score final correctement
+      const currentQuestionCorrect = selectedAnswer === questions[currentQuestion].correctAnswer;
+      const finalScore = score + (currentQuestionCorrect ? 1 : 0);
+      const passed = finalScore >= questions.length * 0.6;
       
       if (passed && !isCompleted) {
         // Sauvegarder la progression
@@ -86,11 +90,15 @@ export default function BuildingPage() {
     setSelectedAnswer(null);
     setShowExplanation(false);
     setScore(0);
+    setShowResults(false);
     setQuizStarted(true);
   };
 
   const currentQ = questions[currentQuestion];
-  const finalScore = score + (showExplanation && selectedAnswer === currentQ.correctAnswer ? 1 : 0);
+  // Calculer le score final en ajoutant 1 si la réponse actuelle est correcte ET qu'on a cliqué sur valider
+  const finalScore = showExplanation && selectedAnswer === currentQ.correctAnswer 
+    ? score
+    : score;
   const isPassed = finalScore >= questions.length * 0.6;
   const isLastQuestion = currentQuestion === questions.length - 1;
 
@@ -178,7 +186,7 @@ export default function BuildingPage() {
               </button>
             </div>
           </div>
-        ) : !showExplanation || !isLastQuestion ? (
+        ) : !showResults ? (
           /* Quiz en cours */
           <div className="space-y-6">
             {/* Progression */}
