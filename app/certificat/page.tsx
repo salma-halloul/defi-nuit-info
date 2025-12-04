@@ -147,31 +147,31 @@ export default function CertificatePage() {
             {/* Le certificat */}
             <div 
               ref={certificateRef}
-              className="bg-white rounded-lg shadow-2xl p-12 border-8 border-double border-amber-600"
+              className="bg-white rounded-lg shadow-2xl p-12 border-8 border-double border-amber-600 print:p-6 print:border-4 print:shadow-none"
               style={{ 
                 backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(251, 191, 36, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(249, 115, 22, 0.1) 0%, transparent 50%)'
               }}
             >
               {/* En-tête */}
-              <div className="text-center mb-8 border-b-4 border-amber-400 pb-6">
-                <div className="text-6xl mb-4">🛡️</div>
-                <h1 className="text-5xl font-bold text-amber-900 mb-2">
+              <div className="text-center mb-8 border-b-4 border-amber-400 pb-6 print:mb-4 print:pb-3 print:border-b-2">
+                <div className="text-6xl mb-4 print:text-4xl print:mb-2">🛡️</div>
+                <h1 className="text-5xl font-bold text-amber-900 mb-2 print:text-3xl print:mb-1">
                   Certificat de Résistant Numérique
                 </h1>
-                <p className="text-xl text-amber-700 font-semibold">
+                <p className="text-xl text-amber-700 font-semibold print:text-base">
                   Démarche NIRD - Numérique Inclusif, Responsable et Durable
                 </p>
               </div>
 
               {/* Corps */}
-              <div className="text-center mb-8">
-                <p className="text-2xl text-gray-700 mb-6">
+              <div className="text-center mb-8 print:mb-4">
+                <p className="text-2xl text-gray-700 mb-6 print:text-lg print:mb-3">
                   Ceci certifie que
                 </p>
-                <p className="text-5xl font-bold text-amber-900 mb-6 py-4 border-y-2 border-amber-400">
+                <p className="text-5xl font-bold text-amber-900 mb-6 py-4 border-y-2 border-amber-400 print:text-3xl print:mb-3 print:py-2">
                   {userName}
                 </p>
-                <p className="text-xl text-gray-700 leading-relaxed mb-8">
+                <p className="text-xl text-gray-700 leading-relaxed mb-8 print:text-sm print:mb-4">
                   a brillamment complété tous les défis du Village Numérique Résistant
                   et démontré une excellente maîtrise des principes d'autonomie numérique,
                   de sobriété et de responsabilité écologique.
@@ -179,18 +179,18 @@ export default function CertificatePage() {
               </div>
 
               {/* Les 6 clés obtenues */}
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold text-center text-amber-900 mb-4">
+              <div className="mb-8 print:mb-4">
+                <h3 className="text-2xl font-bold text-center text-amber-900 mb-4 print:text-lg print:mb-2">
                   🔑 Clés de Résistance Obtenues 🔑
                 </h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 print:gap-2">
                   {Object.values(buildingsData).map((building) => (
                     <div 
                       key={building.id}
-                      className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg p-4 border-2 border-amber-400 text-center"
+                      className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg p-4 border-2 border-amber-400 text-center print:p-2 print:border"
                     >
-                      <div className="text-4xl mb-2">{building.icon}</div>
-                      <p className="text-sm font-semibold text-gray-800">
+                      <div className="text-4xl mb-2 print:text-2xl print:mb-1">{building.icon}</div>
+                      <p className="text-sm font-semibold text-gray-800 print:text-xs">
                         {building.name}
                       </p>
                     </div>
@@ -199,11 +199,11 @@ export default function CertificatePage() {
               </div>
 
               {/* Compétences acquises */}
-              <div className="bg-amber-50 rounded-lg p-6 mb-8 border-2 border-amber-300">
-                <h3 className="text-xl font-bold text-amber-900 mb-3 text-center">
+              <div className="bg-amber-50 rounded-lg p-6 mb-8 border-2 border-amber-300 print:p-3 print:mb-4 print:border">
+                <h3 className="text-xl font-bold text-amber-900 mb-3 text-center print:text-base print:mb-2">
                   Compétences acquises
                 </h3>
-                <div className="grid md:grid-cols-2 gap-3 text-sm">
+                <div className="grid md:grid-cols-2 gap-3 text-sm print:gap-2 print:text-xs">
                   <div className="flex items-center gap-2">
                     <span className="text-green-600 font-bold">✓</span>
                     <span>Maîtrise des logiciels libres</span>
@@ -232,10 +232,10 @@ export default function CertificatePage() {
               </div>
 
               {/* Pied de page avec date et signature */}
-              <div className="flex justify-between items-end mt-8 pt-6 border-t-2 border-amber-300">
+              <div className="flex justify-between items-end mt-8 pt-6 border-t-2 border-amber-300 print:mt-4 print:pt-3 print:border-t">
                 <div className="text-center">
-                  <p className="text-sm text-gray-600 mb-2">Date de délivrance</p>
-                  <p className="font-bold text-gray-800">
+                  <p className="text-sm text-gray-600 mb-2 print:text-xs print:mb-1">Date de délivrance</p>
+                  <p className="font-bold text-gray-800 print:text-sm">
                     {new Date().toLocaleDateString('fr-FR', { 
                       day: 'numeric', 
                       month: 'long', 
@@ -244,18 +244,18 @@ export default function CertificatePage() {
                   </p>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl mb-2">🏛️</div>
-                  <p className="text-sm text-gray-600">Validé par</p>
-                  <p className="font-bold text-gray-800">Le Conseil NIRD</p>
+                  <div className="text-4xl mb-2 print:text-2xl print:mb-1">🏛️</div>
+                  <p className="text-sm text-gray-600 print:text-xs">Validé par</p>
+                  <p className="font-bold text-gray-800 print:text-sm">Le Conseil NIRD</p>
                 </div>
               </div>
 
               {/* Devise */}
-              <div className="text-center mt-8 pt-6 border-t-2 border-amber-300">
-                <p className="text-lg font-semibold text-amber-900 italic">
+              <div className="text-center mt-8 pt-6 border-t-2 border-amber-300 print:mt-4 print:pt-3 print:border-t">
+                <p className="text-lg font-semibold text-amber-900 italic print:text-sm">
                   "Par le village, pour le village ! Résistons ensemble à l'empire numérique."
                 </p>
-                <p className="text-sm text-gray-600 mt-2">
+                <p className="text-sm text-gray-600 mt-2 print:text-xs print:mt-1">
                   Inclusion • Responsabilité • Durabilité
                 </p>
               </div>
@@ -296,11 +296,31 @@ export default function CertificatePage() {
 
       <style jsx global>{`
         @media print {
+          @page {
+            size: A4;
+            margin: 0.5cm;
+          }
+          
           body {
             background: white;
+            margin: 0;
+            padding: 0;
           }
+          
           .print\\:hidden {
             display: none !important;
+          }
+          
+          /* Forcer le certificat sur une seule page */
+          body > div {
+            page-break-inside: avoid;
+            break-inside: avoid;
+          }
+          
+          /* Ajuster la taille du contenu pour tenir sur une page */
+          html, body {
+            height: 100%;
+            overflow: hidden;
           }
         }
       `}</style>
