@@ -35,7 +35,7 @@ export default function BuildingPage() {
       <div className="min-h-screen bg-red-50 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-red-600 mb-4">🚫 Bâtiment non trouvé</h1>
-          <Link href="/village" className="text-blue-600 hover:underline">
+          <Link href="/village" className="text-blue-600 md:text-md text-sm hover:underline">
             Retour au village
           </Link>
         </div>
@@ -108,11 +108,11 @@ export default function BuildingPage() {
       <header className="bg-amber-900 text-white shadow-lg">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center gap-4">
-            <Link href="/village" className="hover:text-amber-200 transition">
+            <Link href="/village" className="md:text-md text-sm hover:text-amber-200 transition">
               ← Retour au village
             </Link>
             <div className="flex-1 text-center">
-              <h1 className="text-2xl font-bold flex items-center justify-center gap-2">
+              <h1 className="md:text-2xl text-xs font-bold flex items-center justify-center gap-2">
                 <span className="text-4xl">{building.icon}</span>
                 {building.name}
               </h1>
@@ -129,23 +129,23 @@ export default function BuildingPage() {
           /* Page d'introduction du bâtiment */
           <div className="space-y-6">
             {/* Description */}
-            <div className="bg-white rounded-lg shadow-xl p-8 border-4 border-amber-600">
+            <div className="bg-white rounded-lg shadow-xl md:p-8 p-4 border-4 border-amber-600">
               <div className="text-center mb-6">
-                <div className="text-8xl mb-4">{building.icon}</div>
-                <h2 className="text-3xl font-bold text-amber-900 mb-4">
+                <div className="md:text-8xl text-5xl mb-4">{building.icon}</div>
+                <h2 className="md:text-3xl text-xl font-bold text-amber-900 mb-4">
                   {building.name}
                 </h2>
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <p className="md:text-lg text-sm text-gray-700 leading-relaxed">
                   {building.description}
                 </p>
               </div>
 
               {isCompleted && (
-                <div className="bg-green-50 border-2 border-green-500 rounded-lg p-4 mb-6 text-center">
-                  <p className="text-green-800 font-semibold text-lg">
+                <div className="bg-green-50 border-2 border-green-500 rounded-lg md:p-4 p-3 mb-6 text-center">
+                  <p className="text-green-800 font-semibold md:text-lg text-base">
                     ✅ Tu as déjà obtenu la clé de ce bâtiment !
                   </p>
-                  <p className="text-green-700 mt-2">
+                  <p className="text-green-700 md:text-base text-sm mt-2">
                     Tu peux refaire le quiz pour améliorer tes connaissances.
                   </p>
                 </div>
@@ -153,34 +153,34 @@ export default function BuildingPage() {
             </div>
 
             {/* Faits intéressants */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-2xl font-bold text-amber-900 mb-4">
+            <div className="bg-white rounded-lg shadow-lg md:p-6 p-4">
+              <h3 className="md:text-2xl text-lg font-bold text-amber-900 mb-4">
                 💡 Le savais-tu ?
               </h3>
               <div className="space-y-3">
                 {building.facts.map((fact, index) => (
                   <div 
                     key={index}
-                    className="flex gap-3 p-4 bg-amber-50 rounded-lg border-l-4 border-amber-500"
+                    className="flex gap-3 md:p-4 p-3 bg-amber-50 rounded-lg border-l-4 border-amber-500"
                   >
-                    <span className="text-2xl flex-shrink-0">🔸</span>
-                    <p className="text-gray-700">{fact}</p>
+                    <span className="md:text-2xl text-lg flex-shrink-0">🔸</span>
+                    <p className="md:text-base text-sm text-gray-700">{fact}</p>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Challenge */}
-            <div className="bg-gradient-to-r from-amber-500 to-orange-500 rounded-lg shadow-xl p-8 text-white text-center">
-              <h3 className="text-3xl font-bold mb-4">
+            <div className="bg-gradient-to-r from-amber-500 to-orange-500 rounded-lg shadow-xl md:p-8 p-4 text-white text-center">
+              <h3 className="md:text-3xl text-xl font-bold mb-4">
                 🎯 {building.challenge}
               </h3>
-              <p className="text-lg mb-6">
+              <p className="md:text-lg text-sm mb-6">
                 Réponds correctement à au moins {Math.ceil(questions.length * 0.6)} questions sur {questions.length} pour obtenir la clé de résistance !
               </p>
               <button
                 onClick={() => setQuizStarted(true)}
-                className="bg-white text-amber-900 px-8 py-4 rounded-full font-bold text-xl hover:bg-amber-100 transition shadow-lg hover:shadow-2xl hover:scale-105"
+                className="bg-white text-amber-900 md:px-8 px-6 md:py-4 py-3 rounded-full font-bold md:text-xl text-base hover:bg-amber-100 transition shadow-lg hover:shadow-2xl hover:scale-105"
               >
                 🚀 Commencer le défi
               </button>
@@ -190,12 +190,12 @@ export default function BuildingPage() {
           /* Quiz en cours */
           <div className="space-y-6">
             {/* Progression */}
-            <div className="bg-white rounded-lg shadow-lg p-4">
+            <div className="bg-white rounded-lg shadow-lg md:p-4 p-3">
               <div className="flex justify-between items-center mb-2">
-                <span className="font-semibold text-gray-700">
+                <span className="font-semibold md:text-base text-sm text-gray-700">
                   Question {currentQuestion + 1}/{questions.length}
                 </span>
-                <span className="font-semibold text-amber-600">
+                <span className="font-semibold md:text-base text-sm text-amber-600">
                   Score: {score}/{questions.length}
                 </span>
               </div>
@@ -208,8 +208,8 @@ export default function BuildingPage() {
             </div>
 
             {/* Question */}
-            <div className="bg-white rounded-lg shadow-xl p-8 border-4 border-amber-600">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">
+            <div className="bg-white rounded-lg shadow-xl md:p-8 p-4 border-4 border-amber-600">
+              <h3 className="md:text-2xl text-lg font-bold text-gray-800 mb-6">
                 {currentQ.question}
               </h3>
 
@@ -226,7 +226,7 @@ export default function BuildingPage() {
                       onClick={() => handleAnswerSelect(index)}
                       disabled={showExplanation}
                       className={`
-                        w-full p-4 text-left rounded-lg border-2 transition-all
+                        w-full md:p-4 p-3 text-left rounded-lg border-2 transition-all
                         ${!showCorrectness && isSelected ? 'border-amber-500 bg-amber-50' : ''}
                         ${!showCorrectness && !isSelected ? 'border-gray-300 bg-white hover:bg-gray-50' : ''}
                         ${showCorrectness && isCorrect ? 'border-green-500 bg-green-50' : ''}
@@ -236,12 +236,12 @@ export default function BuildingPage() {
                       `}
                     >
                       <div className="flex items-center gap-3">
-                        <span className="text-xl font-bold text-gray-600">
+                        <span className="md:text-xl text-base font-bold text-gray-600">
                           {String.fromCharCode(65 + index)}.
                         </span>
-                        <span className="flex-1">{option}</span>
-                        {showCorrectness && isCorrect && <span className="text-2xl">✅</span>}
-                        {showCorrectness && isSelected && !isCorrect && <span className="text-2xl">❌</span>}
+                        <span className="flex-1 md:text-base text-sm">{option}</span>
+                        {showCorrectness && isCorrect && <span className="md:text-2xl text-xl">✅</span>}
+                        {showCorrectness && isSelected && !isCorrect && <span className="md:text-2xl text-xl">❌</span>}
                       </div>
                     </button>
                   );
@@ -250,15 +250,15 @@ export default function BuildingPage() {
 
               {/* Explication */}
               {showExplanation && (
-                <div className={`p-4 rounded-lg border-l-4 ${
+                <div className={`md:p-4 p-3 rounded-lg border-l-4 ${
                   selectedAnswer === currentQ.correctAnswer
                     ? 'bg-green-50 border-green-500'
                     : 'bg-blue-50 border-blue-500'
                 }`}>
-                  <p className="font-semibold mb-2">
+                  <p className="font-semibold md:text-base text-sm mb-2">
                     {selectedAnswer === currentQ.correctAnswer ? '✅ Correct !' : 'ℹ️ Explication :'}
                   </p>
-                  <p className="text-gray-700">{currentQ.explanation}</p>
+                  <p className="md:text-base text-sm text-gray-700">{currentQ.explanation}</p>
                 </div>
               )}
 
@@ -268,7 +268,7 @@ export default function BuildingPage() {
                   <button
                     onClick={handleValidate}
                     disabled={selectedAnswer === null}
-                    className={`px-6 py-3 rounded-lg font-bold transition ${
+                    className={`md:px-6 px-4 md:py-3 py-2 rounded-lg font-bold md:text-base text-sm transition ${
                       selectedAnswer === null
                         ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                         : 'bg-amber-500 text-white hover:bg-amber-600'
@@ -279,7 +279,7 @@ export default function BuildingPage() {
                 ) : (
                   <button
                     onClick={handleNext}
-                    className="px-6 py-3 rounded-lg font-bold bg-amber-500 text-white hover:bg-amber-600 transition"
+                    className="md:px-6 px-4 md:py-3 py-2 rounded-lg font-bold md:text-base text-sm bg-amber-500 text-white hover:bg-amber-600 transition"
                   >
                     {isLastQuestion ? 'Voir les résultats' : 'Question suivante →'}
                   </button>
@@ -290,17 +290,17 @@ export default function BuildingPage() {
         ) : (
           /* Résultats finaux */
           <div className="space-y-6">
-            <div className={`rounded-lg shadow-xl p-8 text-center ${
+            <div className={`rounded-lg shadow-xl md:p-8 p-4 text-center ${
               isPassed ? 'bg-gradient-to-r from-green-400 to-emerald-500' : 'bg-gradient-to-r from-orange-400 to-red-500'
             } text-white`}>
-              <div className="text-8xl mb-4">{isPassed ? '🎉' : '😅'}</div>
-              <h2 className="text-4xl font-bold mb-4">
+              <div className="md:text-8xl text-5xl mb-4">{isPassed ? '🎉' : '😅'}</div>
+              <h2 className="md:text-4xl text-2xl font-bold mb-4">
                 {isPassed ? 'Félicitations !' : 'Pas mal !'}
               </h2>
-              <p className="text-2xl mb-2">
+              <p className="md:text-2xl text-lg mb-2">
                 Score final : {finalScore}/{questions.length}
               </p>
-              <p className="text-xl opacity-90">
+              <p className="md:text-xl text-base opacity-90">
                 {isPassed 
                   ? `Tu as obtenu la clé ${building.icon} de résistance !`
                   : `Il te faut au moins ${Math.ceil(questions.length * 0.6)} bonnes réponses pour obtenir la clé.`
@@ -309,11 +309,11 @@ export default function BuildingPage() {
             </div>
 
             {isPassed && !isCompleted && (
-              <div className="bg-yellow-50 border-2 border-yellow-500 rounded-lg p-6 text-center">
-                <p className="text-xl font-semibold text-yellow-900 mb-2">
+              <div className="bg-yellow-50 border-2 border-yellow-500 rounded-lg md:p-6 p-4 text-center">
+                <p className="md:text-xl text-base font-semibold text-yellow-900 mb-2">
                   🔑 Nouvelle clé obtenue !
                 </p>
-                <p className="text-yellow-800">
+                <p className="md:text-base text-sm text-yellow-800">
                   Ta progression a été sauvegardée. Continue d'explorer le village !
                 </p>
               </div>
@@ -323,14 +323,14 @@ export default function BuildingPage() {
               {!isPassed && (
                 <button
                   onClick={resetQuiz}
-                  className="px-8 py-4 bg-amber-500 text-white rounded-full font-bold hover:bg-amber-600 transition"
+                  className="md:px-8 px-6 md:py-4 py-3 bg-amber-500 text-white rounded-full font-bold md:text-base text-sm hover:bg-amber-600 transition"
                 >
                   🔄 Réessayer
                 </button>
               )}
               <Link
                 href="/village"
-                className="px-8 py-4 bg-gradient-to-r from-amber-600 to-orange-600 text-white rounded-full font-bold hover:from-amber-700 hover:to-orange-700 transition inline-block"
+                className="md:px-8 px-6 md:py-4 py-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white rounded-full font-bold md:text-base text-sm hover:from-amber-700 hover:to-orange-700 transition inline-block"
               >
                 🏰 Retour au village
               </Link>

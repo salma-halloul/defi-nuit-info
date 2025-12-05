@@ -17,12 +17,12 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex justify-between items-center mb-4">
             <div></div>
-            <h1 className="text-3xl font-bold text-center flex-1">🛡️ Le Village Numérique Résistant 🛡️</h1>
-            <Link href="/about" className="hover:text-amber-200 transition font-semibold">
+            <h1 className="md:text-3xl text-sm font-bold text-center flex-1">🛡️ Le Village Numérique Résistant 🛡️</h1>
+            <Link href="/about" className="hover:text-amber-200 md:text-lg text-sm transition font-semibold">
               ℹ️ À propos
             </Link>
           </div>
-          <p className="text-center text-amber-100">Démarche NIRD - Numérique Inclusif, Responsable et Durable</p>
+          <p className="text-center md:text-md text-sm  text-amber-100">Démarche NIRD - Numérique Inclusif, Responsable et Durable</p>
         </div>
       </header>
 
@@ -70,7 +70,7 @@ export default function Home() {
         <div className="text-center">
           <Link 
             href="/village"
-            className="inline-block bg-gradient-to-r from-amber-600 to-orange-600 text-white px-12 py-4 rounded-full text-xl font-bold shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 hover:from-amber-700 hover:to-orange-700"
+            className="inline-block bg-gradient-to-r from-amber-600 to-orange-600 text-white md:px-12 px-9 py-4 rounded-full text-xl font-bold shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 hover:from-amber-700 hover:to-orange-700"
           >
             🏰 Entrer dans le Village 🏰
           </Link>

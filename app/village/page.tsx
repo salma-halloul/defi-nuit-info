@@ -114,17 +114,17 @@ export default function VillagePage() {
       {/* Header avec progression */}
       <header className="bg-amber-900 text-white shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center md:mb-0 mb-3">
             <Link href="/" className="flex items-center gap-2 hover:text-amber-200 transition">
-              <span className="text-2xl">🏠</span>
-              <span className="font-semibold">Accueil</span>
+              <span className="md:text-2xl text-lg">🏠</span>
+              <span className="font-semibold md:text-lg text-sm">Accueil</span>
             </Link>
             
-            <h1 className="text-2xl font-bold text-center flex-1">
+            <h1 className="text-2xl font-bold md:text-lg text-sm text-center flex-1">
               🏰 Le Village Numérique Résistant
             </h1>
             
-            <div className="flex items-center gap-2">
+            <div className="md:flex hidden items-center gap-2">
               <span className="font-semibold">Clés : {keysCollected}/6</span>
               <div className="flex gap-1">
                 {[...Array(6)].map((_, i) => (
@@ -133,6 +133,18 @@ export default function VillagePage() {
                   </span>
                 ))}
               </div>
+            </div>
+          </div>
+          
+          {/* Affichage des clés en mobile (en dessous du titre) */}
+          <div className="md:hidden flex items-center justify-center gap-2 mb-3">
+            <span className="font-semibold text-sm">Clés : {keysCollected}/6</span>
+            <div className="flex gap-1">
+              {[...Array(6)].map((_, i) => (
+                <span key={i} className="text-lg">
+                  {i < keysCollected ? "🔑" : "🔒"}
+                </span>
+              ))}
             </div>
           </div>
           
