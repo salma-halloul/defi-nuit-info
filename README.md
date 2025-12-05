@@ -180,7 +180,7 @@ Libre de droit (pour la Nuit de l'Info 2025)
 
 Développé pour la Nuit de l'Info 2024 - Sujet National
 
-**Équipe de développement :** BOLICE_ISITCom
+**Équipe de développement :** BOLICE200_ISITCom
 
 **Technologies :** Next.js 16, TypeScript, Tailwind CSS 4
 
