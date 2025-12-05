@@ -16,8 +16,8 @@ export default function Home() {
       <header className="bg-amber-900 text-white shadow-lg">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex justify-between items-center mb-4">
-            <div></div>
-            <h1 className="md:text-3xl text-sm font-bold text-center flex-1">🛡️ Le Village Numérique Résistant 🛡️</h1>
+            <h1 className="md:text-3xl text-sm font-bold text-center ml-0 md:ml-24 flex-1">
+              🛡️ Le Village Numérique Résistant 🛡️</h1>
             <Link href="/about" className="hover:text-amber-200 md:text-lg text-sm transition font-semibold">
               ℹ️ À propos
             </Link>
