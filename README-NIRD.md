@@ -22,19 +22,32 @@ Le Village Numérique Résistant transforme un établissement scolaire en villag
 - **Quiz éducatifs** pour chaque bâtiment (3 questions par bâtiment)
 - **Système de progression** avec collecte de 6 clés de résistance
 - **Certificat personnalisé** à obtenir après complétion
+- **Chatbot intelligent** - Assistant virtuel pour répondre à vos questions sur NIRD
 - **Sauvegarde locale** de la progression (localStorage)
 - **Design thématique** inspiré du village gaulois résistant
 
 ## 🛠️ Technologies utilisées
 
 - **Next.js 16** - Framework React
-- **TypeScript** - Typage statique
-- **Tailwind CSS** - Styling
-- **React Hooks** - Gestion d'état
+- **TypeScript** - Typage statique pour plus de sécurité
+- **Tailwind CSS 4** - Framework CSS moderne pour le styling
+- **React 19** - Bibliothèque UI avec les dernières fonctionnalités
+- **Vercel Analytics** - Analyse de performance et d'engagement
+- **API Routes** - Backend intégré pour le chatbot et la gestion des sessions
 
 ## 📦 Installation et démarrage
 
+### Prérequis
+- Node.js 20.x ou supérieur
+- npm, yarn, pnpm ou bun
+
+### Installation
+
 ```bash
+# Cloner le dépôt
+git clone https://github.com/salma-halloul/defi-nuit-info.git
+cd defi-nuit-info
+
 # Installer les dépendances
 npm install
 
@@ -43,6 +56,26 @@ npm run dev
 
 # Ouvrir http://localhost:3000 dans le navigateur
 ```
+
+### Commandes disponibles
+
+```bash
+npm run dev      # Démarrer le serveur de développement
+npm run build    # Construire pour la production
+npm run start    # Démarrer le serveur de production
+npm run lint     # Vérifier le code avec ESLint
+```
+
+## 🚀 Déploiement
+
+Le projet est optimisé pour être déployé sur [Vercel](https://vercel.com) :
+
+1. Push votre code sur GitHub
+2. Connectez votre dépôt à Vercel
+3. Vercel détecte automatiquement Next.js et configure le déploiement
+4. Votre application est en ligne en quelques minutes !
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/salma-halloul/defi-nuit-info)
 
 ## 🎨 Structure du projet
 
@@ -53,6 +86,12 @@ app/
 ├── building/[id]/page.tsx      # Page de chaque bâtiment avec quiz
 ├── certificat/page.tsx         # Page du certificat final
 ├── about/page.tsx              # Page "À propos" de NIRD
+├── components/
+│   └── Chatbot.tsx            # Composant du chatbot intelligent
+├── api/
+│   └── chat/
+│       ├── session/route.ts   # API de gestion des sessions
+│       └── message/route.ts   # API de traitement des messages
 ├── types/index.ts              # Types TypeScript
 ├── data/buildings.ts           # Données des bâtiments et quiz
 ├── globals.css                 # Styles globaux
@@ -86,6 +125,17 @@ Minimiser l'impact environnemental. Favoriser le réemploi, la réparation et la
 3. **Collecter** les 6 clés de résistance
 4. **Obtenir** le certificat de Résistant Numérique
 5. **Rejoindre** la communauté NIRD
+
+## 🤖 Chatbot Intelligent
+
+Le village dispose d'un assistant virtuel disponible sur toutes les pages pour vous accompagner :
+
+- **Réponses instantanées** aux questions sur la démarche NIRD
+- **Conseils personnalisés** sur les logiciels libres et le numérique responsable
+- **Interface conviviale** avec historique de conversation
+- **Disponible 24/7** pour vous guider dans votre apprentissage
+
+Le chatbot utilise une API externe pour fournir des réponses contextuelles et pertinentes sur tous les aspects du numérique inclusif, responsable et durable.
 
 ## 🎯 Objectifs pédagogiques
 
@@ -122,6 +172,13 @@ Le numérique représente :
 
 Ce projet est open source et s'inscrit dans la démarche NIRD. Les contributions sont les bienvenues !
 
+### Comment contribuer ?
+1. Fork le projet
+2. Créez une branche pour votre fonctionnalité (`git checkout -b feature/AmazingFeature`)
+3. Committez vos changements (`git commit -m 'Add some AmazingFeature'`)
+4. Push vers la branche (`git push origin feature/AmazingFeature`)
+5. Ouvrez une Pull Request
+
 ## 📝 Licence
 
 Tous droits libérés - Démarche NIRD
@@ -129,6 +186,14 @@ Tous droits libérés - Démarche NIRD
 ## 🎉 Crédits
 
 Développé pour la Nuit de l'Info 2024 - Défi NIRD
+
+**Équipe de développement :** [Nom de votre équipe]
+
+**Technologies :** Next.js 16, React 19, TypeScript, Tailwind CSS 4
+
+**Hébergement :** Vercel
+
+**Dépôt GitHub :** [salma-halloul/defi-nuit-info](https://github.com/salma-halloul/defi-nuit-info)
 
 ---
 
