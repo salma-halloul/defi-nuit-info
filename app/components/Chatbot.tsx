@@ -16,7 +16,9 @@ export default function Chatbot() {
   const [shouldFloat, setShouldFloat] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const API_BASE_URL = 'http://37.59.116.54:8000';
+  // Utiliser les routes API Next.js comme proxy
+  const API_SESSION_URL = '/api/chat/session';
+  const API_MESSAGE_URL = '/api/chat/message';
 
   // Créer une nouvelle session au montage du composant
   useEffect(() => {
@@ -38,7 +40,7 @@ export default function Chatbot() {
   // Créer une nouvelle session
   const createNewSession = async () => {
     try {
-      const response = await fetch(`${API_BASE_URL}/session/new`);
+      const response = await fetch(API_SESSION_URL);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -66,7 +68,7 @@ export default function Chatbot() {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`${API_BASE_URL}/chat`, {
+      const response = await fetch(API_MESSAGE_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
