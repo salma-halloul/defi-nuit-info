@@ -39,10 +39,16 @@ export default function Chatbot() {
   const createNewSession = async () => {
     try {
       const response = await fetch(`${API_BASE_URL}/session/new`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
       const data = await response.json();
       setSessionId(data.session_id);
+      console.log('Session créée:', data.session_id);
     } catch (error) {
       console.error('Erreur lors de la création de la session:', error);
+      // Créer une session factice pour permettre l'utilisation en mode dégradé
+      setSessionId('fallback-session-' + Date.now());
     }
   };
 
